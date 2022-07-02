@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')   
-const Goal = require('../models/goalModel')   
+const Goal = require('../models/goalModel')    
+// has a bunch of mongoose methods we can use to create/read/etc.
 
 // @desc Get goals            (description)
 // @route   GET /api/goals    (the method to get goals)
