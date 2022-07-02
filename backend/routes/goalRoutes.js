@@ -8,11 +8,12 @@ const {
   deleteGoal 
 } = require('../controllers/goalController') 
 
-router.get('/', getGoals)
-
 router.route('/').get(getGoals).post(setGoal);  
-router.route('/:id').put(updateGoal).delete(deleteGoal);
+router.route('/:id').put(updateGoal).delete(deleteGoal);    
+/* these two funcs use the same route, "/:id", so we chain them. Note that "router.route()" needs to 
+be used when chaining */
 
+module.exports = router
 
 /* All these requests follow CRUD (create, read, update, delete). Each of these requires different "paths":
 C (HTTP POST): /api/devices + payload
@@ -32,5 +33,3 @@ delete request example (with same request url):
 
 we now have all our routes set up. 
 */
-
-module.exports = router

@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')   
-//const Goal = require('../models/goalModel')   
+const Goal = require('../models/goalModel')   
 
 // @desc Get goals            (description)
 // @route   GET /api/goals    (the method to get goals)
@@ -17,7 +17,6 @@ const setGoal = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('please add a text field') 
   }
-
   const goal = await Goal.create({    
     text: req.body.text
   })
