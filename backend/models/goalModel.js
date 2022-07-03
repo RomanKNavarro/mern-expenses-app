@@ -9,7 +9,7 @@ const goalSchema = mongoose.Schema(
     }
   }, 
   {
-    timestamps: true  // just creates some "created at" and "updated at" fields in the json object that is sent back 
+    timestamps: true  // just creates some "created at" and "updated at" fields in the json object that is sent back (easy)
   }
 )
 
