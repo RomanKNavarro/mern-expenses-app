@@ -1,5 +1,7 @@
 const express = require('express')  
 const router = express.Router()
+const {protect} = require('../middleware/authMiddleware')
+
 
 const {   
   getGoals,            
@@ -8,8 +10,8 @@ const {
   deleteGoal 
 } = require('../controllers/goalController') 
 
-router.route('/').get(getGoals).post(setGoal);  
-router.route('/:id').put(updateGoal).delete(deleteGoal);    
+router.route('/').get(protect, getGoals).post(protect, setGoal);  
+router.route('/:id').put(protect, updateGoal).delete(protect, deleteGoal);    
 /* these two funcs use the same route, "/:id", so we chain them. Note that "router.route()" needs to 
 be used when chaining */
 
