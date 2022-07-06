@@ -12,7 +12,7 @@ function Login() {
     password: ''    
   })
 
-  const {email, password} = formData   
+  const {email, password} = formData   // we only need email and pw to login
 
   const navigate = useNavigate();   
   const dispatch = useDispatch();
