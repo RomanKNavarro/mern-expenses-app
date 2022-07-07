@@ -3,6 +3,7 @@ import authService from './authService'
 
 const user = JSON.parse(localStorage.getItem('user'))   
 
+// ONLY PARTAINS TO THE USER PART OF OUR STATE.
 const initialState = {
   user: user ? user : null,   
   isError: false,
@@ -16,7 +17,9 @@ export const register = createAsyncThunk('auth/register', async (user, thunkAPI)
     return await authService.register(user);       
   } catch (error) {
     const message = 
-    (error.response && error.response.data && error.response.data.message) || 
+    (error.response && 
+      error.response.data && 
+      error.response.data.message) || 
       error.message || 
       error.toString() 
     return thunkAPI.rejectWithValue(message)  
@@ -93,5 +96,5 @@ export const authSlice = createSlice({
   }    
 })
 
-export const {reset} = authSlice.actions  
+export const {reset} = authSlice.actions   // here's how to export reducers (reset here)
 export default authSlice.reducer          
