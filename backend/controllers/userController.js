@@ -65,13 +65,7 @@ const loginUser = asyncHandler(async(req, res) => {
 // @route   GET /api/users/me    get the info for the current user. We send the token and get id from that token
 // @access Private               make this private for when authenticating
 const getMe = asyncHandler(async(req, res) => {
-  
-  const { _id, name, email } = await User.findById(req.user.id)   
-  res.status(200).json({  
-    id: _id,
-    name, 
-    email
-  })
+  res.status(200).json(req.user)			// send back all the user's info. No need to find him again.
 })
 
 const generateToken = (id) => {    

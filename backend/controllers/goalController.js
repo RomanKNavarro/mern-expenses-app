@@ -36,9 +36,7 @@ const updateGoal = asyncHandler(async (req, res) => {
     throw new Error('Goal not found')
   }
 
-  const user = await User.findById(req.user.id)   // get user by it's id
-
-  if (!user) {
+  if (!req.user) {
     res.status(401)
     throw new Error('User not found')
   }
@@ -47,9 +45,9 @@ const updateGoal = asyncHandler(async (req, res) => {
     res.status(401)
     throw new Error('User not authorized')
   }
+
   /* notice how this stuff is strategically placed above the "updatedGoal" func. This ensures the user checks out 
   first before they can access that func. */
-
   const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {new: true})  
   res.status(200).json(updatedGoal) 
 })
