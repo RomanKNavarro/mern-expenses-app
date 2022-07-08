@@ -9,14 +9,14 @@ import Spinner from '../components/Spinner'
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {user} = useSelector((state) => state.auth) 
-  //const {goals, isLoading, isError, message} = useSelector((state) => state.goals)   
-  const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
+  const {user} = useSelector((state) => state.auth)  
+  //const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
+  // i'm guessing that all this stuff above is SOLEY for the goals???
 
   useEffect(() => {
-    if (isError) {
-      console.log(message)
-    }
+    // if (isError) {
+    //   console.log(message)
+    // }
 
     if (!user) {
       navigate('/login')    
@@ -28,11 +28,12 @@ function Dashboard() {
     //   dispatch(reset())
     // }
    
-  }, [user, navigate, isError, message, dispatch])
+  //}, [user, navigate, isError, message, dispatch])
+}, [user, navigate, dispatch])
 
-  if (isLoading) {
-    return <Spinner/>     
-  }
+  // if (isLoading) {
+  //   return <Spinner/>     
+  // }
 
   return (
     <>

@@ -97,4 +97,4 @@ export const authSlice = createSlice({
 })
 
 export const {reset} = authSlice.actions   // here's how to export reducers (reset here)
-export default authSlice.reducer          
+export default authSlice.reducer           // authReducer
