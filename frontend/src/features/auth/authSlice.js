@@ -13,6 +13,7 @@ const initialState = {
 }
 
 export const register = createAsyncThunk('auth/register', async (user, thunkAPI) => {
+  // 'auth/register' IS THE PREFIX, e.g for 'auth/register/pending'
   try {   
     return await authService.register(user);       
   } catch (error) {
