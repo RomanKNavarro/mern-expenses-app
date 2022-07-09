@@ -14,7 +14,6 @@ const createGoal = async (goalData, id) => {
   return response.data;
 }
 
-
 const getGoals = async (id) => { 
   const config = {
     headers: {
@@ -24,7 +23,6 @@ const getGoals = async (id) => {
   const response = await axios.get(API_URL, config)      
   return response.data;
 }
-
 
 const deleteGoal = async (goalId, token) => {      
   const config = {

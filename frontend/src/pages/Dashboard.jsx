@@ -3,33 +3,34 @@ import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'         
 import GoalForm from '../components/GoalForm'   
 //import GoalItem from '../components/GoalItem'
-import Spinner from '../components/Spinner'
-//import {getGoals, reset} from '../features/goals/goalSlice'
+//import Spinner from '../components/Spinner'
+import {getGoals, reset} from '../features/goals/goalSlice'
 
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const {user} = useSelector((state) => state.auth)  
-  //const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
-  // i'm guessing that all this stuff above is SOLEY for the goals???
+  const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
+  // i'm guessing that all this stuff above is SOLEY for the goals??? YES 
 
   useEffect(() => {
-    // if (isError) {
-    //   console.log(message)
-    // }
+    if (isError) {
+      console.log(message)
+    }
 
     if (!user) {
       navigate('/login')    
     }
 
-    //dispatch(getGoals())
+    dispatch(getGoals())
 
     // return () => {
     //   dispatch(reset())
     // }
    
   //}, [user, navigate, isError, message, dispatch])
-}, [user, navigate, dispatch])
+  }, [user, navigate, isError, message])
+
 
   // if (isLoading) {
   //   return <Spinner/>     

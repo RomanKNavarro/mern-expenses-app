@@ -11,7 +11,8 @@ const protect = asyncHandler(async (req, res, next) => {        // a single func
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET)   
 
-      req.user = await User.findById(decoded.id).select('-password')
+      req.user = await User.findById(decoded.id).select('-password')    
+      // WE FIND THE USER HERE, SO WE DON'T HAVE TO DO THE SAME THING IN OUR CONTROLLER FUNCS.
     
       next() 
     } catch (error) {
