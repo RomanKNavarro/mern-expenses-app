@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'    
 import goalService from './goalService' 
 
-const initialState = {
+const initialState = {  // INITIAL STATE IS GOOD. 
   goals: [],  
   isError: false,
   isSuccess: false,
@@ -9,6 +9,7 @@ const initialState = {
   message: ''
 }
 
+// CREATE NEW GOAL
 export const createGoal = createAsyncThunk(
   'goals/create', 
   async (goalData, thunkAPI) => {
@@ -29,11 +30,12 @@ export const createGoal = createAsyncThunk(
   }
 })
 
+// get user goals
 export const getGoals = createAsyncThunk('goals/getAll', async (_, thunkAPI) => {
   // when we don't want to pass an arg, we pass _ ^^
   // what arg would this normally have?: asynchronous data
   try {   
-    const token = thunkAPI.getState().auth.goals.token
+    const token = thunkAPI.getState().auth.user.token   // I PUT "GOALS.TOKEN" AGAIN!
     return await goalService.getGoals(token); 
     // the async data would normally be passed here as the first arg. None is needed for this func
   } catch (error) {                         
@@ -68,7 +70,7 @@ export const goalSlice = createSlice({
   name: 'goal',
   initialState, 
   reducers: {           
-    reset: (state) => initialState,  
+    reset: (state) => initialState,     // RESET IS FINE
   },
   extraReducers: (builder) => {               
     builder
@@ -98,7 +100,7 @@ export const goalSlice = createSlice({
         state.isLoading = false
         state.isError = true
         state.message = action.payload
-        state.message = null
+        //state.message = null          REMOVED THIS
       })     
       .addCase(deleteGoal.pending, (state) => {
         state.isLoading = true
@@ -106,13 +108,13 @@ export const goalSlice = createSlice({
       .addCase(deleteGoal.fulfilled, (state, action) => {   
         state.isLoading = false
         state.isSuccess = true
-        state.goals = state.goals.filter((goal) => goal._id !== action.payload.id)         
+        state.goals = state.goals.filter((goal) => goal._id !== action.payload.id)   // WHAT'S UP WITH "GOAL._ID"? 
       })
       .addCase(deleteGoal.rejected, (state, action) => {    
         state.isLoading = false
         state.isError = true
         state.message = action.payload            
-        state.message = null
+        //  state.message = null        REMOVED THIS AS WELL.
       })
   }    
 })

@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'         
 import GoalForm from '../components/GoalForm'   
 //import GoalItem from '../components/GoalItem'
-//import Spinner from '../components/Spinner'
+import Spinner from '../components/Spinner'
 import {getGoals, reset} from '../features/goals/goalSlice'
 
 function Dashboard() {
@@ -22,19 +22,19 @@ function Dashboard() {
       navigate('/login')    
     }
 
-    dispatch(getGoals())
+    dispatch(getGoals())    // FETCHES GOALS FROM BACKEND AND PUTS THEM IN 'GOALS' SO WE HAVE ACCESS TO THEM
 
-    // return () => {
-    //   dispatch(reset())
-    // }
-   
-  //}, [user, navigate, isError, message, dispatch])
-  }, [user, navigate, isError, message])
+    return () => {
+      dispatch(reset())     
+    }
+    // RESET STATE ON UNMOUNT. HERE IS THE CULPRIT.
+
+  }, [user, navigate, isError, message, dispatch])
 
 
-  // if (isLoading) {
-  //   return <Spinner/>     
-  // }
+  if (isLoading) {
+    return <Spinner/>     
+  }
 
   return (
     <>
