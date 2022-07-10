@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')   
 const Goal = require('../models/goalModel')    
 // has a bunch of mongoose methods we can use to create/read/etc.
+const User = require('../models/userModel')
 
 // @desc Get goals            (description)
 // @route   GET /api/goals    (the method to get goals)
@@ -87,6 +88,7 @@ We'll use a package called "Express Async Handler", installed via the terminal: 
 With that installed, we wrap all the funcs with asyncHandler().
 
 With that done, now we're ready to start w/ the database. */
+
 
 
 

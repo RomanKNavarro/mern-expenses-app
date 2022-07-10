@@ -2,11 +2,11 @@ import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'    
 import {useSelector, useDispatch} from 'react-redux'         
 import GoalForm from '../components/GoalForm'   
-//import GoalItem from '../components/GoalItem'
+import GoalItem from '../components/GoalItem'
 import Spinner from '../components/Spinner'
-import {getGoals, reset} from '../features/goals/goalSlice' // WRONG
+import {getGoals, reset} from '../features/goals/goalSlice' 
 // import getGoals from '../features/goals/goalSlice'
-// import reset from '../features/auth/authSlice'
+// import reset from '../features/auth/authSlice'     This was wrong.
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -22,16 +22,14 @@ function Dashboard() {
 
     if (!user) {
       navigate('/login')    
-    } else {
-      dispatch(getGoals())    // FETCHES GOALS FROM BACKEND AND PUTS THEM IN 'GOALS' SO WE HAVE ACCESS TO THEM
-    }
-
-    // return () => {
-    //   dispatch(reset())   // LOOKS GOOD HERE.  MY STUFF THE SAME AS BRAD'S
+    } 
+    // else {
+    //   dispatch(getGoals())    // FETCHES GOALS FROM BACKEND AND PUTS THEM IN 'GOALS' SO WE HAVE ACCESS TO THEM
     // }
+    dispatch(getGoals())
 
     return () => {
-      dispatch(reset())
+      dispatch(reset())   // LOOKS GOOD HERE (IT IS)
     }
     // RESET STATE ON UNMOUNT. HERE IS THE CULPRIT.
 
@@ -50,7 +48,7 @@ function Dashboard() {
       </section>
       <GoalForm/>
 
-      {/* <section className="content">
+      <section className="content">
         {goals.length > 0 ? (                                  
           
           <div className="goals">
@@ -61,7 +59,7 @@ function Dashboard() {
         ) : (
           <h3>Youba not setta goals</h3>
         )}
-      </section> */}
+      </section>
     </>
   )
 }
