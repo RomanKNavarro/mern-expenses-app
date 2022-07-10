@@ -6,7 +6,7 @@ const initialState = {  // INITIAL STATE IS GOOD.
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: ''
+  message: '',
 }
 
 // CREATE NEW GOAL
@@ -114,7 +114,7 @@ export const goalSlice = createSlice({
         state.isLoading = false
         state.isError = true
         state.message = action.payload            
-        //  state.message = null        REMOVED THIS AS WELL.
+        //  state.message = null        REMOVED THIS AS WELL.   EVERYTHING ELSE GOOD.
       })
   }    
 })

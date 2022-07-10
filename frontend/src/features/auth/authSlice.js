@@ -9,7 +9,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: ''
+  message: '',
 }
 
 export const register = createAsyncThunk('auth/register', async (user, thunkAPI) => {
@@ -53,10 +53,10 @@ export const authSlice = createSlice({
   reducers: {         
     reset: (state) => {         
       state.isLoading = false
-      state.isError = false
       state.isSuccess = false
-      state.isLoading = false
-    }
+      state.isError = false
+      state.message = ''
+    },
   },
   extraReducers: (builder) => {     
     builder
@@ -72,7 +72,6 @@ export const authSlice = createSlice({
         state.isLoading = false
         state.isError = true
         state.message = action.payload
-       
         state.user = null
       })
 
@@ -99,3 +98,4 @@ export const authSlice = createSlice({
 
 export const {reset} = authSlice.actions   // here's how to export reducers (reset here)
 export default authSlice.reducer           // authReducer
+// EVERYTHING IN THIS FILE GOOD.

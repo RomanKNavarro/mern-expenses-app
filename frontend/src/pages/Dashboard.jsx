@@ -4,7 +4,9 @@ import {useSelector, useDispatch} from 'react-redux'
 import GoalForm from '../components/GoalForm'   
 //import GoalItem from '../components/GoalItem'
 import Spinner from '../components/Spinner'
-import {getGoals, reset} from '../features/goals/goalSlice'
+import {getGoals, reset} from '../features/goals/goalSlice' // WRONG
+// import getGoals from '../features/goals/goalSlice'
+// import reset from '../features/auth/authSlice'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -20,17 +22,21 @@ function Dashboard() {
 
     if (!user) {
       navigate('/login')    
+    } else {
+      dispatch(getGoals())    // FETCHES GOALS FROM BACKEND AND PUTS THEM IN 'GOALS' SO WE HAVE ACCESS TO THEM
     }
 
-    dispatch(getGoals())    // FETCHES GOALS FROM BACKEND AND PUTS THEM IN 'GOALS' SO WE HAVE ACCESS TO THEM
+    // return () => {
+    //   dispatch(reset())   // LOOKS GOOD HERE.  MY STUFF THE SAME AS BRAD'S
+    // }
 
     return () => {
-      dispatch(reset())     
+      dispatch(reset())
     }
     // RESET STATE ON UNMOUNT. HERE IS THE CULPRIT.
 
-  }, [user, navigate, isError, message, dispatch])
-
+  //}, [user, navigate, isError, message, dispatch])
+}, [user, dispatch, navigate])
 
   if (isLoading) {
     return <Spinner/>     
@@ -61,6 +67,8 @@ function Dashboard() {
 }
 
 export default Dashboard
+
+
 
 
 
