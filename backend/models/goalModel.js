@@ -3,6 +3,11 @@
 const mongoose = require('mongoose')
 const goalSchema = mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,   // this is a "ObjectId" type
+      required: true,
+      ref: 'User',
+    },
     text: {
       type: String,    // determine what kind of attributes the "text" field should have via an object with prop.s
       required: [true, 'Please add a text value']   // make the text field required.

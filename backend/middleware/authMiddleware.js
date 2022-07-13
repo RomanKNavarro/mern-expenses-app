@@ -31,4 +31,3 @@ const protect = asyncHandler(async (req, res, next) => {        // a single func
 
 module.exports = { protect }
 // EVERYTHING GOOD HERE.
-
