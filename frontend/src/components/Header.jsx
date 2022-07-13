@@ -17,7 +17,7 @@ function Header() {                       // this header is a nav bar at the top
   return (
     <header className='header'>
       <div className='logo'>
-        <Link to='/'>GoalSetter</Link>    {/* remember that '/' links to the Dashboard */}
+        <Link to='/'>ExpenseSetter</Link>    {/* remember that '/' links to the Dashboard */}
       </div>
       <ul>
         {user ? (                     

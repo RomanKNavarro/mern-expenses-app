@@ -29,7 +29,7 @@ function GoalForm() {
         <div className="form-group">
           {/* created with button.btn.btn-block */}
           <button className="btn btn-block" type='submit'>
-            Add Goal
+            Add New Expense
           </button>
         </div>    
       </form>

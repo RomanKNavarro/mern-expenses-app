@@ -8,6 +8,13 @@ import {getGoals, reset} from '../features/goals/goalSlice'
 // import getGoals from '../features/goals/goalSlice'
 // import reset from '../features/auth/authSlice'     This was wrong.
 
+/*
+'Note: 1 error on 32:53 "reset" function will be imported from authslice not from goalSlice, something like this:
+import { reset } from "../features/auth/authSlice";'
+
+works fine for me though...
+*/
+
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -44,7 +51,7 @@ function Dashboard() {
     <>
       <section className='heading'>
         <h1>Welcome {user && user.name}</h1>    
-        <p>Goals Dashboard</p>
+        <p>Expenses Dashboard</p>
       </section>
       <GoalForm/>
 

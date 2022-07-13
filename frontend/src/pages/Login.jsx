@@ -55,9 +55,9 @@ function Login() {
     <section className='heading'>
       <h1>
         {/* changes here */}
-        <FaSignInAlt /> Login                          
+        <FaSignInAlt /> Login hoe                        
       </h1>
-      <p>Login and start setting goals</p>
+      <p>Login and start setting your expenses</p>
     </section>
 
     <section className='form'>
