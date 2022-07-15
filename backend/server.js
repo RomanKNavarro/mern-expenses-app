@@ -1,7 +1,5 @@
 const path = require('path')          // part of deployment preparation. 
 const express = require('express')
-const colors = require('colors')    
-const dotenv = require('dotenv').config() 
 const {errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')    // func makes it possible to connect to database.
 const port = process.env.PORT || 5000 
