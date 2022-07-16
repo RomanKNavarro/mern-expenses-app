@@ -5,8 +5,8 @@ import GoalForm from '../components/GoalForm'
 import GoalItem from '../components/GoalItem'
 import Spinner from '../components/Spinner'
 import {getGoals, reset} from '../features/goals/goalSlice' 
-// import getGoals from '../features/goals/goalSlice'
-// import reset from '../features/auth/authSlice'     This was wrong.
+import getGoals from '../features/goals/goalSlice'
+import reset from '../features/auth/authSlice'     
 
 /*
 'Note: 1 error on 32:53 "reset" function will be imported from authslice not from goalSlice, something like this:
