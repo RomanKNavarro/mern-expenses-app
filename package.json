@@ -4,11 +4,12 @@
   "description": "mern app that keeps track of users' expenses",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Roman Navarro",
   "license": "MIT",
@@ -19,12 +20,13 @@
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.4.4",
+    "mongoose": "^6.4.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "serve": "^14.0.1"
   },
   "devDependencies": {
-    "concurrently": "^7.2.2",
+    "concurrently": "^7.3.0",
     "nodemon": "^2.0.19",
     "web-vitals": "^2.1.4"
   },
