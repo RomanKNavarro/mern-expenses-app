@@ -2,7 +2,7 @@ const path = require('path')          // part of deployment preparation.
 const express = require('express')
 const {errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')    // func makes it possible to connect to database.
-const port = process.env.PORT || 5000 
+const port = process.env.PORT || 8080
 
 connectDB()
 
