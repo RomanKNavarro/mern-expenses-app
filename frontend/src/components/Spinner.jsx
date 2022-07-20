@@ -1,20 +1,20 @@
-// CREATED WITH RCFE
-function Spinner() {
-  return (
-    <div className="loadingSpinnerContainer">
-      <div className="loadingSpinner"></div>
-    </div>
-  )
-}
-
-export default Spinner
-
+// // CREATED WITH RCFE
 // function Spinner() {
 //   return (
-//     <div className='loadingSpinnerContainer'>
-//       <div className='loadingSpinner'></div>
+//     <div className="loadingSpinnerContainer">
+//       <div className="loadingSpinner"></div>
 //     </div>
 //   )
 // }
 
 // export default Spinner
+
+function Spinner() {
+  return (
+    <div className='loadingSpinnerContainer'>
+      <div className='loadingSpinner'></div>
+    </div>
+  )
+}
+
+export default Spinner
